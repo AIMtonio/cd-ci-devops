@@ -6,7 +6,9 @@ export class PythonRunnerService {
   async runHola(name: string): Promise<any> {
     return new Promise((resolve, reject) => {
 
-      const py = spawn('python3', ['/opt/scripts/'+process.env.SCRIPT_NAME_PIPELINE, name], {
+
+      console.log(`Running Python script with name: ${name}`);
+      const py = spawn('python3', ['/opt/scripts/'+process.env.SCRIPT_NAME_PIPELINE], {
         env: { ...process.env }, // puedes inyectar variables
       });
 
