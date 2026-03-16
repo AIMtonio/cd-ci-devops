@@ -5,9 +5,9 @@ import { PythonRunnerService } from 'src/python-runner/python-runner.service';
 export class AppController {
   constructor(private readonly py: PythonRunnerService) {}
 
-  @Get()
+  @Get('back-dinamic-architect')
   async hola(@Query('name') name = 'mundo') {
     // GET /ges?name=Antonio
-    return this.py.runHola(name);
+    return await this.py.runHola(name);
   }
 }

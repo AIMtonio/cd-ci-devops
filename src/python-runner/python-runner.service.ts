@@ -3,9 +3,10 @@ import { spawn } from 'child_process';
 
 @Injectable()
 export class PythonRunnerService {
-  runHola(name: string): Promise<any> {
+  async runHola(name: string): Promise<any> {
     return new Promise((resolve, reject) => {
-      const py = spawn('python3', ['/opt/scripts/hola.py', name], {
+
+      const py = spawn('python3', ['/opt/scripts/'+process.env.SCRIPT_NAME_PIPELINE, name], {
         env: { ...process.env }, // puedes inyectar variables
       });
 
